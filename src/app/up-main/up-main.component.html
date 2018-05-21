@@ -1,0 +1,33 @@
+<mat-card class="h-100">
+  <mat-card-header>
+    <h1>Top pizza orders</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input [formControl]="topInput" matInput placeholder="Enter top pizza count" value="10" type="number">
+      </mat-form-field>
+    </form>
+    <div class="example-container mat-elevation-z8" *ngIf="dataSource">
+      <table mat-table #table [dataSource]="dataSource">
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Position </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="toppings">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Toppings </th>
+          <td mat-cell *matCellDef="let element"> {{element.toppings}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="count">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Count </th>
+          <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
