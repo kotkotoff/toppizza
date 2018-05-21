@@ -32,7 +32,7 @@ export class UpMainComponent implements OnInit {
 
   createList(top: number) {
     const topList = new TopList();
-    this.api.get().subscribe(o => {
+    this.api.get().subscribe((o: Pizza[]) => {
       for (const order of o) {
         topList.add(order);
       }

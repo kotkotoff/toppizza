@@ -21,6 +21,7 @@ export class TopList {
   }
 
   add(pizza: Pizza): void {
+    pizza.toppings.sort();
     const hashCode = TopList.hashCode(pizza.toppings.join(''));
 
     if (this.counts.has(hashCode)) {

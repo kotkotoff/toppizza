@@ -4,7 +4,4 @@ export class Pizza {
   position: number;
   toppings: string[];
 
-  constructor(toppings: string[]) {
-    this.toppings = toppings.sort();
-  }
 }
